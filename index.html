@@ -113,6 +113,18 @@
             });
         });
 
+        document.addEventListener('DOMContentLoaded', function() {
+            var textInput = document.getElementById('textInput');
+
+            // Set initial focus to the textarea
+            textInput.focus();
+
+            // Event listener to refocus on the textarea whenever it loses focus
+             textInput.addEventListener('blur', function() {
+                setTimeout(function() { textInput.focus(); }, 0);
+             });
+        });
+
     </script>
 </body>
 </html>
