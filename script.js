@@ -20,7 +20,7 @@ document.getElementById('submitBtn').addEventListener('click', function() {
  });
 
 var jsonObject = filteredLines.map(function(line) { 
-return { 'value': line.trim() }; 
+return { 'barcode': line.trim() }; 
 });
 
 document.getElementById('jsonOutput').textContent = JSON.stringify(jsonObject, null, 2);
