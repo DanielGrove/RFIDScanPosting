@@ -70,7 +70,7 @@
             var textInput = document.getElementById('textInput').value;
             var lines = textInput.split('\n');
             var jsonObject = lines.map(function(line) { 
-                return { 'value': line.trim() }; 
+                return { 'barcode': line.trim() }; 
             });
             document.getElementById('jsonOutput').textContent = JSON.stringify(jsonObject, null, 2);
         });
@@ -86,7 +86,7 @@
 
         document.getElementById('postBtn').addEventListener('click', function() {
             var jsonText = document.getElementById('jsonOutput').textContent;
-            fetch('YOUR_WEBHOOK_URL', { // Replace 'YOUR_WEBHOOK_URL' with your actual webhook URL
+            fetch('https://lga6ws.apps.connect.claris.com/api/webhook/v1/barcodes20via20browser/catch', { // Replace 'YOUR_WEBHOOK_URL' with your actual webhook URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
