@@ -29,7 +29,7 @@ document.getElementById('jsonOutput').textContent = JSON.stringify(jsonObject, n
 
 document.getElementById('postBtn').addEventListener('click', function() {
     var jsonText = document.getElementById('jsonOutput').textContent;
-    fetch('https://lga6ws.apps.connect.claris.com/api/webhook/v1/barcodes20via20browser/catch', { // Replace 'YOUR_WEBHOOK_URL' with your actual webhook URL
+    fetch('https://lga6ws.apps.connect.claris.com/api/webhook/v1/barcodes20via20browser/catch', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
