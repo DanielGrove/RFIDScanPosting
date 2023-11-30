@@ -86,10 +86,10 @@
 
         var jsonObject = filteredLines.map(function(line) { 
         return { 'value': line.trim() }; 
-    });
+        });
 
-    document.getElementById('jsonOutput').textContent = JSON.stringify(jsonObject, null, 2);
-    });
+        document.getElementById('jsonOutput').textContent = JSON.stringify(jsonObject, null, 2);
+        });
 
 
         document.getElementById('postBtn').addEventListener('click', function() {
@@ -109,6 +109,9 @@
                 alert('Error:', error);
             });
         });
+
+        window.onload = function() {
+            document.getElementById('textInput').focus();
     </script>
 </body>
 </html>
