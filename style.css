@@ -51,3 +51,15 @@
             font-size: 12px;
         }
     }
+
+    #uniqueCount {
+        padding: 10px;
+        color: white;
+        background: linear-gradient(to right, #6dd5ed, #2193b0); /* Blue gradient */
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 1.2em;
+    }
+    
