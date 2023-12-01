@@ -1,65 +1,73 @@
-    /* Basic Reset */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    /* Viewport Configuration for iOS */
-    meta[name=viewport] {
-        content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no";
-    }
-    
-    /* Ensuring Readability and Easy Interaction */
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        font-size: 16px;
-        line-height: 1.5;
-        color: #333;
-        background-color: #fff;
-        padding: 20px;
-    }
-    
-    textarea, button {
-        width: 100%; /* Full width to maximize space */
-        padding: 10px; /* Padding for touch friendliness */
-        margin-bottom: 20px;
-        border: 1px solid #ddd;
-        border-radius: 5px; /* Rounded corners for a softer look */
-    }
-    
-    button {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
-    
-    button:hover {
-        background-color: #0056b3;
-    }
-    
-    /* Responsive Design for Different Screen Sizes */
-    @media (max-width: 768px) {
-        body {
-            font-size: 14px;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        body {
-            font-size: 12px;
-        }
-    }
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    #uniqueCount {
-        padding: 10px;
-        color: white;
-        background: linear-gradient(to right, #6dd5ed, #2193b0); /* Blue gradient */
-        border-radius: 5px;
-        text-align: center;
-        margin-top: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        font-size: 1.2em;
+/* Viewport Configuration for iOS */
+meta[name="viewport"] {
+    content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no";
+}
+
+/* Base Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    padding: 20px;
+}
+
+/* Form Elements */
+textarea,
+button {
+    width: 100%; /* Full width */
+    padding: 10px; /* Touch-friendly padding */
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Button Styles */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
     }
-    
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+/* Specific Elements */
+#uniqueCount {
+    padding: 10px;
+    color: white;
+    background: linear-gradient(to right, #6dd5ed, #2193b0); /* Blue gradient */
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+}
+
+#jsonOutput {
+    font-size: 0.8em;
+    /* Additional styling as needed */
+}
