@@ -56,3 +56,25 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() { textInput.focus(); }, 0);
      });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var textInput = document.getElementById('textInput');
+    var uniqueCountDisplay = document.getElementById('uniqueCount');
+
+    // Function to update unique values count
+    function updateUniqueCount() {
+        var lines = textInput.value.split('\n').filter(Boolean);
+        var uniqueLines = new Set(lines.map(line => line.trim()));
+        uniqueCountDisplay.textContent = 'Unique Values Count: ' + uniqueLines.size;
+    }
+
+    // Initial focus and event listeners
+    textInput.focus();
+    textInput.addEventListener('blur', function() {
+        setTimeout(function() { textInput.focus(); }, 0);
+    });
+    textInput.addEventListener('input', updateUniqueCount);
+
+    // Existing event listeners for buttons
+    // ...
+});
