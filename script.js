@@ -38,17 +38,16 @@ document.getElementById('submitBtn').addEventListener('click', function() {
     var textInput = document.getElementById('textInput').value;
     var lines = textInput.split('\n');
 
-    // Filter out empty or whitespace-only lines
-    var filteredLines = lines.filter(function(line) {
-    return line.trim() !== '';
- });
+    // Create a Set to store unique lines
+    var uniqueLines = new Set(lines.map(line => line.trim()));
 
-var jsonObject = filteredLines.map(function(line) { 
-return { 'barcode': line.trim() }; 
-});
+    // Generate a JSON object from the unique lines
+    var jsonObject = Array.from(uniqueLines).map(function(line) {
+        return line !== '' ? { 'value': line } : null;
+    }).filter(Boolean); // Filter out any null entries (from empty lines)
 
-document.getElementById('jsonOutput').textContent = JSON.stringify(jsonObject, null, 2);
-});
+    document.getElementById('jsonOutput').textContent = JSON.stringify(jsonObject, null, 2);
+    });
 
 
 document.getElementById('postBtn').addEventListener('click', function() {
