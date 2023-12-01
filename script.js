@@ -10,6 +10,30 @@ window.onload = function() {
     document.getElementById('jsonOutput').textContent = JSON.stringify(jsonObject, null, 2);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    var textInput = document.getElementById('textInput');
+    var uniqueCountDisplay = document.getElementById('uniqueCount');
+
+    // Function to update unique values count
+    function updateUniqueCount() {
+        var lines = textInput.value.split('\n').filter(Boolean);
+        var uniqueLines = new Set(lines.map(line => line.trim()));
+        uniqueCountDisplay.textContent = 'Unique Values Count: ' + uniqueLines.size;
+    }
+
+    // Set initial focus and refocus on blur
+    textInput.focus();
+    textInput.addEventListener('blur', function() {
+        setTimeout(function() { textInput.focus(); }, 0);
+    });
+
+    // Event listener for keyup event on Enter key
+    textInput.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            updateUniqueCount();
+        }
+    })};
+
 document.getElementById('submitBtn').addEventListener('click', function() {
     var textInput = document.getElementById('textInput').value;
     var lines = textInput.split('\n');
@@ -55,26 +79,4 @@ document.addEventListener('DOMContentLoaded', function() {
      textInput.addEventListener('blur', function() {
         setTimeout(function() { textInput.focus(); }, 0);
      });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    var textInput = document.getElementById('textInput');
-    var uniqueCountDisplay = document.getElementById('uniqueCount');
-
-    // Function to update unique values count
-    function updateUniqueCount() {
-        var lines = textInput.value.split('\n').filter(Boolean);
-        var uniqueLines = new Set(lines.map(line => line.trim()));
-        uniqueCountDisplay.textContent = 'Unique Values Count: ' + uniqueLines.size;
-    }
-
-    // Initial focus and event listeners
-    textInput.focus();
-    textInput.addEventListener('blur', function() {
-        setTimeout(function() { textInput.focus(); }, 0);
-    });
-    textInput.addEventListener('input', updateUniqueCount);
-
-    // Existing event listeners for buttons
-    // ...
 });
