@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.key === 'Enter') {
             updateUniqueCount();
         }
-    })};
+    })});
 
 document.getElementById('submitBtn').addEventListener('click', function() {
     var textInput = document.getElementById('textInput').value;
