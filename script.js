@@ -10,31 +10,37 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() { textInput.focus(); }, 0);
     });
 
-    // Function to update unique values count
-    function updateUniqueCount() {
-        var lines = textInput.value.split('\n').filter(Boolean);
-        var uniqueLines = new Set(lines.map(line => line.trim()));
+    // Function to update unique values count and JSON output
+    function updateContent() {
+        var lines = textInput.value.split('\n').filter(line => line.trim() !== '');
+
+        // Update unique values count
+        var uniqueLines = new Set(lines);
         uniqueCountDisplay.textContent = 'Unique Values Count: ' + uniqueLines.size;
+
+        // Update JSON output
+        var jsonObject = Array.from(uniqueLines).map(function(line) {
+            return { 'value': line.trim() };
+        });
+        document.getElementById('jsonOutput').textContent = JSON.stringify(jsonObject, null, 2);
     }
+
+    // Event listener for input changes, including handling for '\n'
+    textInput.addEventListener('input', function(event) {
+        if (event.inputType === 'insertLineBreak') {
+            updateContent();
+        }
+    });
 
     // Event listener for keyup event on Enter key
     textInput.addEventListener('keyup', function(event) {
         if (event.key === 'Enter') {
-            updateUniqueCount();
+            updateContent();
         }
     });
 
     // Event listener for click event on submit button
-    submitBtn.addEventListener('click', function() {
-        var lines = textInput.value.split('\n');
-        var uniqueLines = new Set(lines.map(line => line.trim()));
-
-        var jsonObject = Array.from(uniqueLines).map(function(line) {
-            return line !== '' ? { 'value': line } : null;
-        }).filter(Boolean); // Filter out any null entries (from empty lines)
-
-        document.getElementById('jsonOutput').textContent = JSON.stringify(jsonObject, null, 2);
-    });
+    submitBtn.addEventListener('click', updateContent);
 
     // Event listener for click event on post button
     postBtn.addEventListener('click', function() {
