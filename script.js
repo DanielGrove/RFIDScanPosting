@@ -10,20 +10,20 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() { textInput.focus(); }, 0);
     });
 
-    // Function to update unique values count and JSON output
-    function updateContent() {
-        var lines = textInput.value.split('\n').filter(line => line.trim() !== '');
+// Function to update unique values count and JSON output, and store data
+function updateContent() {
+    var lines = textInput.value.split('\n').filter(line => line.trim() !== '');
 
-        // Update unique values count
-        var uniqueLines = new Set(lines);
-        uniqueCountDisplay.textContent = 'Unique Values Count: ' + uniqueLines.size;
+    // Update unique values count
+    var uniqueLines = new Set(lines);
+    uniqueCountDisplay.textContent = 'Unique Values Count: ' + uniqueLines.size;
 
-        // Update JSON output
-        var jsonObject = Array.from(uniqueLines).map(function(line) {
-            return { 'value': line.trim() };
-        });
-        document.getElementById('jsonOutput').textContent = JSON.stringify(jsonObject, null, 2);
-    }
+    // Create JSON output with a single array of barcodes
+    var jsonObject = {
+        barcodes: Array.from(uniqueLines)
+    };
+    document.getElementById('jsonOutput').textContent = JSON.stringify(jsonObject, null, 2)
+}
 
     // Event listener for input changes, including handling for '\n'
     textInput.addEventListener('input', function(event) {
