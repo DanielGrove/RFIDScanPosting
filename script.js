@@ -45,7 +45,7 @@ function updateContent() {
     // Event listener for click event on post button
     postBtn.addEventListener('click', function() {
         var jsonText = document.getElementById('jsonOutput').textContent;
-        fetch('https://lga6ws.apps.connect.claris.com/api/webhook/v1/barcodes20via20browser/catch', {
+        fetch('https://9sifs2.apps.connect.claris.com/api/webhook/v1/rfid20scan20app/catch', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
