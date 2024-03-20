@@ -59,7 +59,7 @@ button:hover {
 #uniqueCount {
     padding: 10px;
     color: white;
-    background: linear-gradient(to right, #6dd5ed, #2193b0); /* Blue gradient */
+    background: linear-gradient(to right, #f92c2c, #ee2e2e); /* Red gradient */
     border-radius: 5px;
     text-align: center;
     margin-top: 20px;
